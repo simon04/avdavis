@@ -26,7 +26,7 @@
     <abbr title={region}>{region.split(/ /)[0]}</abbr>
     <strong title={properties.date}>{name}</strong>
     {format(altitude, { unit: 'm' })}
-    <StationPlotLinks feature={feature}></StationPlotLinks>
+    <StationPlotLinks {feature} />
   </div>
 
   {#if properties.HS != undefined}
