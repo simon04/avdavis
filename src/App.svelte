@@ -42,6 +42,14 @@
       –
       <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
     </p>
+    <p>
+      av/da/vis &copy;
+      <a href="https://github.com/simon04">Simon Legner</a>
+      –
+      <a href="https://github.com/simon04/avdavis">simon04/avdavis</a>
+      –
+      <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html">GPL 3.0</a>
+    </p>
     <hr />
     <StationList features={data ? data.features : []} />
   {:catch error}

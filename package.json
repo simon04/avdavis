@@ -1,6 +1,9 @@
 {
   "name": "avdavis",
-  "description": "AValanche DAta VISualization",
+  "description": "/av/alanche /da/ta /vis/ualization",
+  "author": "Simon Legner <Simon.Legner@gmail.com>",
+  "license": "GPL-3.0-or-later",
+  "private": true,
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
