@@ -1,4 +1,5 @@
 <script>
+  import StationPlotLinks from "./StationPlotLinks.svelte";
   import { format } from "./number.js";
 
   export let feature;
@@ -25,6 +26,7 @@
     <abbr title={region}>{region.split(/ /)[0]}</abbr>
     <strong>{name}</strong>
     {format(altitude, { unit: 'm' })}
+    <StationPlotLinks feature={feature}></StationPlotLinks>
   </div>
 
   {#if properties.HS != undefined}
