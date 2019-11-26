@@ -30,7 +30,7 @@
 
 <svelte:window bind:innerWidth />
 <ul>
-  {#each plots as plot}
+  {#each plots as plot (plot.interval)}
     <li>
       <a href={plot.url}>{plot.interval}</a>
     </li>

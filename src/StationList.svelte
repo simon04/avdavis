@@ -15,7 +15,7 @@
 </style>
 
 <ul>
-  {#each sortedFeaturs as feature}
+  {#each sortedFeaturs as feature (feature.id)}
     <Station {feature} />
   {/each}
 </ul>
