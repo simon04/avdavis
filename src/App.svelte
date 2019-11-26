@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import AppTitle from "./AppTitle.svelte";
   import Loading from "./Loading.svelte";
+  import StationList from "./StationList.svelte";
   import { fetchData } from "./api.js";
 
   export let promise;
@@ -41,6 +42,8 @@
       –
       <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
     </p>
+    <hr />
+    <StationList features={data ? data.features : []} />
   {:catch error}
     <p style="color: red">{error.message}</p>
   {/await}

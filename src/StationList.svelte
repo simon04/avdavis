@@ -1,0 +1,21 @@
+<script>
+  import Station from "./Station.svelte";
+  export let features;
+  $: sortedFeaturs = [...features].sort(
+    (a, b) =>
+      a.properties["LWD-Region"].localeCompare(b.properties["LWD-Region"]) ||
+      b.geometry.coordinates[1] - a.geometry.coordinates[1]
+  );
+</script>
+
+<style>
+  ul {
+    padding: 0;
+  }
+</style>
+
+<ul>
+  {#each sortedFeaturs as feature}
+    <Station {feature} />
+  {/each}
+</ul>
