@@ -20,6 +20,13 @@
     list-style: none;
     margin-top: 1ex;
   }
+  li:target {
+    background: rgba(25, 171, 255, 0.2);
+  }
+  li:hover {
+    background: rgba(25, 171, 255, 0.1);
+    transition: 0.1s ease background;
+  }
 </style>
 
 <li {id}>
