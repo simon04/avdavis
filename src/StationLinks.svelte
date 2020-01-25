@@ -1,6 +1,10 @@
 <script>
   export let feature;
   let innerWidth;
+  $: latitude = feature.geometry.coordinates[1];
+  $: longitude = feature.geometry.coordinates[0];
+  $: geo = `geo:${latitude},${longitude}`;
+  $: osm = `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}`;
   $: plots = "1d/tag 3d/dreitage 1w/woche 1m/monat 6m/winter"
     .split(" ")
     .map(i => {
@@ -33,6 +37,14 @@
   {#each plots as plot (plot.interval)}
     <li>
       <a href={plot.url}>{plot.interval}</a>
+      {" "}
     </li>
   {/each}
+  <li>
+    <a href={geo}>geo:</a>
+    {" "}
+  </li>
+  <li>
+    <a href={osm} title="Show on OpenStreetMap">osm</a>
+  </li>
 </ul>
