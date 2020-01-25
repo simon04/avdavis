@@ -3,6 +3,7 @@
   import { format } from "./number.js";
 
   export let feature;
+  $: id = feature.id;
   $: altitude = feature.geometry.coordinates[2];
   $: properties = feature.properties;
   $: region = properties["LWD-Region"];
@@ -21,8 +22,9 @@
   }
 </style>
 
-<li>
+<li {id}>
   <div>
+    <a href={'#' + id}>#</a>
     <abbr title={region}>{region.split(/ /)[0]}</abbr>
     <strong title={properties.date}>{name}</strong>
     {format(altitude, { unit: 'm' })}
