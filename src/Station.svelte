@@ -6,6 +6,9 @@
   $: id = feature.id;
   $: altitude = feature.geometry.coordinates[2];
   $: properties = feature.properties;
+  $: outdated =
+    !properties.date ||
+    new Date(properties.date).getTime() + 3 * 60 * 60 * 1000 < Date.now();
   $: region = properties["LWD-Region"];
   $: name = properties.name;
   const compass = ["NN", "NE", "EE", "SE", "SS", "SW", "WW", "NW", "NN"];
@@ -27,6 +30,9 @@
     background: rgba(25, 171, 255, 0.1);
     transition: 0.1s ease background;
   }
+  .outdated {
+    text-decoration: line-through;
+  }
 </style>
 
 <li {id}>
@@ -39,7 +45,7 @@
   </div>
 
   {#if properties.HS != undefined}
-    <div>
+    <div class:outdated>
       Snow height:
       <span>{format(properties.HS, { unit: 'cm' })}</span>
       /
@@ -52,7 +58,7 @@
   {/if}
 
   {#if properties.LT != undefined}
-    <div>
+    <div class:outdated>
       Air temperature:
       <span>{format(properties.LT, { digits: 1, unit: '°C' })}</span>
       /
@@ -63,7 +69,7 @@
   {/if}
 
   {#if properties.WG != undefined}
-    <div>
+    <div class:outdated>
       Wind:
       <span>{format(properties.WG, { unit: 'km/h' })}</span>
       <span>{windDirection}</span>
