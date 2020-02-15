@@ -11,7 +11,7 @@ body {
   margin: 0;
   padding: 0 8px 8px;
   box-sizing: border-box;
-  font-family: 'Noto Mono', 'Courier New', 'Courier', monospace;
+  font-family: monospace;
 }
 
 /* https://vis4.net/palettes/#/9|d|19abff|93003a|1|1 */
