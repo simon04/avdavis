@@ -1,6 +1,5 @@
 export async function fetchData() {
-  // original https://lawine.tirol.gv.at/data/produkte/ogd.geojson
-  const url = 'https://avdavis.legner.me/data/ogd.geojson';
+  const url = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
   const res = await fetch(url, {mode: 'cors'});
 
   if (res.ok) {

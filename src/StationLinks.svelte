@@ -10,7 +10,7 @@
     .map(i => {
       const [interval, fragment] = i.split("/");
       const width = innerWidth < 800 ? 540 : innerWidth < 1100 ? 800 : 1100;
-      const url = `https://lawine.tirol.gv.at/data/grafiken/${width}/standard/${fragment}/${feature.properties.plot}.png`;
+      const url = `https://wiski.tirol.gv.at/lawine/grafiken/${width}/standard/${fragment}/${feature.properties.plot}.png`;
       return { interval, url };
     });
 </script>
