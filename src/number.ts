@@ -1,4 +1,7 @@
-export function format(number, { width = 4, digits, unit, factor = 1 } = {}) {
+export function format(
+  number: Number | undefined,
+  { width = 4, digits = 0, unit = "", factor = 1 } = {}
+) {
   if (typeof number === "number") {
     number *= factor;
     const sign = Math.sign(number) >= 0 ? "+" : "\u2212";

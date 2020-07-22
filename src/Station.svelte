@@ -1,17 +1,24 @@
-<script>
+<script type="ts">
   import StationLinks from "./StationLinks.svelte";
   import { format } from "./number.js";
 
-  export let feature;
+  export let feature: Geo.Feature;
+  let id: string;
   $: id = feature.id;
+  let altitude: number;
   $: altitude = feature.geometry.coordinates[2];
+  let properties: Geo.Properties;
   $: properties = feature.properties;
+  let outdated: boolean;
   $: outdated =
     !properties.date ||
     new Date(properties.date).getTime() + 3 * 60 * 60 * 1000 < Date.now();
+  let region: string;
   $: region = properties["LWD-Region"];
+  let name: string;
   $: name = properties.name;
   const compass = ["NN", "NE", "EE", "SE", "SS", "SW", "WW", "NW", "NN"];
+  let windDirection: string;
   $: windDirection =
     typeof properties.WR !== "number"
       ? "--"

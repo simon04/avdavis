@@ -1,10 +1,15 @@
-<script>
-  export let feature;
-  let innerWidth;
+<script lang="ts">
+  export let feature: Geo.Feature;
+  let innerWidth: number;
+  let latitude: number;
   $: latitude = feature.geometry.coordinates[1];
+  let longitude: number;
   $: longitude = feature.geometry.coordinates[0];
+  let geo: string;
   $: geo = `geo:${latitude},${longitude}`;
+  let osm: string;
   $: osm = `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}`;
+  let plots: { interval: string; url: string }[];
   $: plots = "1d/tag 3d/dreitage 1w/woche 1m/monat 6m/winter"
     .split(" ")
     .map(i => {

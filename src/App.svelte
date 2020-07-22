@@ -3,9 +3,9 @@
   import AppTitle from "./AppTitle.svelte";
   import Loading from "./Loading.svelte";
   import StationList from "./StationList.svelte";
-  import { fetchData } from "./api.js";
+  import { fetchData } from "./api";
 
-  export let promise;
+  export let promise: Promise<Geo.FeatureCollection>;
 
   onMount(() => {
     promise = fetchData();

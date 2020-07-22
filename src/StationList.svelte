@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   import Station from "./Station.svelte";
-  export let features;
+  export let features: Geo.Feature[];
   $: sortedFeaturs = [...features].sort(
     (a, b) =>
       a.properties["LWD-Region"].localeCompare(b.properties["LWD-Region"]) ||
