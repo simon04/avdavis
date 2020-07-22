@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   import AppTitle from "./AppTitle.svelte";
   import Loading from "./Loading.svelte";
