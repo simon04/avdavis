@@ -6,6 +6,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
+    "test": "echo No tests specified!",
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public",
