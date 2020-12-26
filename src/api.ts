@@ -3,7 +3,11 @@ export async function fetchData(): Promise<Geo.FeatureCollection> {
   const res = await fetch(url, { mode: "cors" });
 
   if (res.ok) {
-    const json = await res.json();
+    const json: Geo.FeatureCollection = await res.json();
+    const lastModified = res.headers.get("Last-Modified");
+    json.properties = {
+      lastModified: new Date(lastModified).toLocaleString(),
+    };
     return json;
   } else {
     const text = await res.text();

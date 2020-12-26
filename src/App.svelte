@@ -30,7 +30,11 @@
       <Loading />
     </p>
   {:then data}
-    <p>The data is ready: {data ? data.features.length : 0} stations loaded.</p>
+    <p>
+      The data is ready:
+      <span>{data?.features?.length} stations loaded.</span>
+      <span>Last updated on {data?.properties?.lastModified}.</span>
+    </p>
     <p>
       Data &copy;
       <a href="https://www.tirol.gv.at/">Land Tirol</a>

@@ -1,6 +1,9 @@
 declare namespace Geo {
   export interface FeatureCollection {
     features: Feature[];
+    properties: {
+      lastModified: string;
+    };
     type: "FeatureCollection";
   }
 
