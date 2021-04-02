@@ -1,6 +1,6 @@
 <script type="ts">
   import StationLinks from "./StationLinks.svelte";
-  import { format } from "./number.js";
+  import { format } from "./number.ts";
 
   export let feature: Geo.Feature;
   let id: string;
