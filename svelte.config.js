@@ -1,5 +1,7 @@
-const { typescript } = require("svelte-preprocess");
+import sveltePreprocess from "svelte-preprocess";
 
-module.exports = {
-  preprocess: [typescript()],
+export default {
+  // Consult https://github.com/sveltejs/svelte-preprocess
+  // for more information about preprocessors
+  preprocess: sveltePreprocess(),
 };
