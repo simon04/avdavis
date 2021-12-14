@@ -23,10 +23,11 @@
     typeof properties.WR !== "number"
       ? "--"
       : compass[Math.round(((properties.WR + 360 - 22.5) % 360) / 45)];
+  $: HSD72or0 = properties.HSD72 ?? 0;
   $: hsHistogram = {
-    base: '#'.repeat((properties.HS - properties.HSD72) / 4),
-    add: '#'.repeat(Math.max(0, properties.HSD72) / 4),
-    del: '-'.repeat(-Math.min(0, properties.HSD72) / 4),
+    base: '#'.repeat(Math.max(0, properties.HS - HSD72or0) / 4),
+    add: '#'.repeat(Math.max(0, HSD72or0) / 4),
+    del: '-'.repeat(-Math.min(0, HSD72or0) / 4),
   }
 </script>
 
