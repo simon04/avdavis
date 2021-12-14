@@ -58,7 +58,10 @@
   </div>
 
   {#if properties.HS != undefined}
-    <div class:outdated>
+    <div class:outdated style="float: right">
+      <ins>{hsHistogram.add}</ins><del>{hsHistogram.del}</del><span>{hsHistogram.base}</span>
+    </div>
+    <div class:outdated style="clear: right">
       Snow height:
       <span>{format(properties.HS, { unit: 'cm' })}</span>
       /
@@ -67,10 +70,6 @@
       <span>Δ48h{format(properties.HSD48)}</span>
       /
       <span>Δ72h{format(properties.HSD72)}</span>
-    </div>
-    <div class:outdated>
-      Snow height:
-      <span>{hsHistogram.base}</span><ins>{hsHistogram.add}</ins><del>{hsHistogram.del}</del>
     </div>
   {/if}
 
