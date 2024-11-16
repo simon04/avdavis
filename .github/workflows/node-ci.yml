@@ -6,11 +6,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14'
-      - run: yarn install --no-progress --frozen-lockfile
+          node-version: '22'
+      - run: corepack enable
+      - run: yarn install
       - run: yarn build
       - uses: peaceiris/actions-gh-pages@v3
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
