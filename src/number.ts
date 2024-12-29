@@ -1,6 +1,6 @@
 export function format(
   number: Number | undefined,
-  { width = 4, digits = 0, unit = "", factor = 1 } = {}
+  { width = 4, digits = 0, unit = "", factor = 1 } = {},
 ) {
   if (typeof number === "number") {
     number *= factor;
