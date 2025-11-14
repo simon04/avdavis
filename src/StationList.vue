@@ -10,7 +10,7 @@ const sortedFeatures = computed(() =>
   [...props.features].sort(
     (a, b) =>
       a.properties["LWD-Region"].localeCompare(b.properties["LWD-Region"]) ||
-      b.geometry.coordinates[1] - a.geometry.coordinates[1],
+      b.geometry.coordinates[1]! - a.geometry.coordinates[1]!,
   ),
 );
 </script>
