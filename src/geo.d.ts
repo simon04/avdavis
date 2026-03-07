@@ -20,6 +20,7 @@ declare namespace Geo {
   }
 
   export interface Properties {
+    "LWD-Nummer"?: string;
     "LWD-Region": string;
     date?: string;
     GS_O?: number;
