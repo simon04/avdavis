@@ -4,13 +4,14 @@ import AppTitle from "./AppTitle.vue";
 import AppLoading from "./AppLoading.vue";
 import StationList from "./StationList.vue";
 import { useFetch } from "@vueuse/core";
+import * as Geo from "./geo";
 
 const { data, isFetching, isFinished, error, response } =
   useFetch<Geo.FeatureCollection>(
-    "https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson",
+    "https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson"
   ).json();
 const lastModified = computed(() =>
-  response.value?.headers.get("Last-Modified"),
+  response.value?.headers.get("Last-Modified")
 );
 </script>
 

@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import StationLinks from "./StationLinks.vue";
 import { format } from "./number.ts";
+import * as Geo from "./geo";
 
 const props = defineProps<{
   feature: Geo.Feature;
@@ -12,7 +13,7 @@ const altitude = computed(() => props.feature.geometry.coordinates[2]);
 const properties = computed(() => props.feature.properties);
 const outdated = computed(
   () =>
-    !properties.value.date ||
+    typeof properties.value.date !== "string" ||
     new Date(properties.value.date).getTime() + 3 * 60 * 60 * 1000 < Date.now()
 );
 const region = computed(() => properties.value["LWD-Region"]);

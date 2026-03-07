@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import StationEntry from "./StationEntry.vue";
+import * as Geo from "./geo";
 
 const props = defineProps<{
   features: Geo.Feature[];
@@ -9,9 +10,9 @@ const props = defineProps<{
 const sortedFeatures = computed(() =>
   [...props.features].sort(
     (a, b) =>
-      a.properties["LWD-Region"].localeCompare(b.properties["LWD-Region"]) ||
-      b.geometry.coordinates[1]! - a.geometry.coordinates[1]!,
-  ),
+      (a.properties["LWD-Region"]??'').localeCompare(b.properties["LWD-Region"]??'') ||
+      b.geometry.coordinates[1]! - a.geometry.coordinates[1]!
+  )
 );
 </script>
 
