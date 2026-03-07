@@ -13,7 +13,7 @@ const properties = computed(() => props.feature.properties);
 const outdated = computed(
   () =>
     !properties.value.date ||
-    new Date(properties.value.date).getTime() + 3 * 60 * 60 * 1000 < Date.now()
+    new Date(properties.value.date).getTime() + 3 * 60 * 60 * 1000 < Date.now(),
 );
 const region = computed(() => properties.value["LWD-Region"]);
 const name = computed(() => properties.value.name);
@@ -21,7 +21,7 @@ const compass = ["NN", "NE", "EE", "SE", "SS", "SW", "WW", "NW", "NN"];
 const windDirection = computed(() =>
   typeof properties.value.WR !== "number"
     ? "--"
-    : compass[Math.round(((properties.value.WR + 360 - 22.5) % 360) / 45)]
+    : compass[Math.round(((properties.value.WR + 360 - 22.5) % 360) / 45)],
 );
 const HSor0 = computed(() => properties.value.HS ?? 0);
 const HSD72or0 = computed(() => properties.value.HSD72 ?? 0);

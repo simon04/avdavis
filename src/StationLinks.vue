@@ -11,8 +11,7 @@ const latitude = computed<number>(() => props.feature.geometry.coordinates[1]!);
 const longitude = computed<number>(() => props.feature.geometry.coordinates[0]!);
 const geo = computed<string>(() => `geo:${latitude.value},${longitude.value}`);
 const osm = computed<string>(
-  () =>
-    `https://www.openstreetmap.org/?mlat=${latitude.value}&mlon=${longitude.value}`,
+  () => `https://www.openstreetmap.org/?mlat=${latitude.value}&mlon=${longitude.value}`,
 );
 const plots = computed<{ interval: string; url: string }[]>(() =>
   "1d/tag 3d/dreitage 1w/woche 1m/monat 6m/winter".split(" ").map((i) => {

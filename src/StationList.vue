@@ -23,10 +23,6 @@ ul {
 
 <template>
   <ul>
-    <StationEntry
-      v-for="feature in sortedFeatures"
-      :key="feature.id"
-      :feature="feature"
-    />
+    <StationEntry v-for="feature in sortedFeatures" :key="feature.id" :feature="feature" />
   </ul>
 </template>

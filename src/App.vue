@@ -5,13 +5,10 @@ import AppLoading from "./AppLoading.vue";
 import StationList from "./StationList.vue";
 import { useFetch } from "@vueuse/core";
 
-const { data, isFetching, isFinished, error, response } =
-  useFetch<Geo.FeatureCollection>(
-    "https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson",
-  ).json();
-const lastModified = computed(() =>
-  response.value?.headers.get("Last-Modified"),
-);
+const { data, isFetching, isFinished, error, response } = useFetch<Geo.FeatureCollection>(
+  "https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson",
+).json();
+const lastModified = computed(() => response.value?.headers.get("Last-Modified"));
 </script>
 
 <template>
@@ -33,9 +30,7 @@ const lastModified = computed(() =>
       Data &copy;
       <a href="https://www.tirol.gv.at/">Land Tirol</a>
       –
-      <a
-        href="https://www.data.gv.at/katalog/dataset/bb43170b-30fb-48aa-893f-51c60d27056f"
-      >
+      <a href="https://www.data.gv.at/katalog/dataset/bb43170b-30fb-48aa-893f-51c60d27056f">
         data.tirol.gv.at
       </a>
       –
