@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "@vue/reactivity";
+import { computed } from "vue";
 import AppTitle from "./AppTitle.vue";
 import AppLoading from "./AppLoading.vue";
 import StationList from "./StationList.vue";
