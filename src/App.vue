@@ -4,6 +4,7 @@ import AppTitle from "./AppTitle.vue";
 import AppLoading from "./AppLoading.vue";
 import StationList from "./StationList.vue";
 import { useFetch } from "@vueuse/core";
+import { gettext } from "./i18n.ts";
 
 const { data, isFetching, isFinished, error, response } = useFetch<Geo.FeatureCollection>(
   "https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson",
@@ -15,19 +16,20 @@ const lastModified = computed(() => response.value?.headers.get("Last-Modified")
   <main>
     <AppTitle />
     <p v-if="isFetching">
-      Loading station data
+      {{ gettext("Loading station data") }}
       <AppLoading />
     </p>
     <p v-if="isFinished">
-      The data is ready:
-      <span>{{ data?.features?.length }} stations loaded.</span>
+      {{ gettext("The data is ready") }}:
+      <span>{{ gettext("{0} stations loaded.", data?.features?.length) }}</span>
       <span v-if="lastModified">
-        Last updated on
+        {{ " " }}
+        {{ gettext("Last updated on") }}
         {{ new Date(lastModified).toLocaleString("sv") }}.
       </span>
     </p>
     <p v-if="isFinished">
-      Data &copy;
+      {{ gettext("Data ©") }}
       <a href="https://www.tirol.gv.at/">Land Tirol</a>
       –
       <a href="https://www.data.gv.at/katalog/dataset/bb43170b-30fb-48aa-893f-51c60d27056f">
@@ -37,7 +39,7 @@ const lastModified = computed(() => response.value?.headers.get("Last-Modified")
       <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
     </p>
     <p v-if="isFinished">
-      av/da/vis &copy;
+      {{ gettext("av/da/vis ©") }}
       <a href="https://github.com/simon04">Simon Legner</a>
       –
       <a href="https://github.com/simon04/avdavis">simon04/avdavis</a>

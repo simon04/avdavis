@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import StationLinks from "./StationLinks.vue";
 import { format } from "./number.ts";
+import { gettext } from "./i18n.ts";
 
 const props = defineProps<{
   feature: Geo.Feature;
@@ -69,7 +70,7 @@ li:hover {
         ><span>{{ hsHistogram.base }}</span>
       </div>
       <div :class="{ outdated }" style="clear: right">
-        Snow height:
+        {{ gettext("Snow height") }}:
         <span>{{ format(properties.HS, { unit: "cm" }) }}</span>
         /
         <span>Δ24h{{ format(properties.HSD24) }}</span>
@@ -81,21 +82,21 @@ li:hover {
     </div>
 
     <div v-if="properties.LT !== undefined" :class="{ outdated }">
-      Air temperature:
+      {{ gettext("Air temperature") }}:
       <span>{{ format(properties.LT, { digits: 1, unit: "°C" }) }}</span>
       /
-      <span>min{{ format(properties.LT_MIN, { digits: 1 }) }}</span>
+      <span>{{ gettext("min") }}{{ format(properties.LT_MIN, { digits: 1 }) }}</span>
       /
-      <span>max{{ format(properties.LT_MAX, { digits: 1 }) }}</span>
+      <span>{{ gettext("max") }}{{ format(properties.LT_MAX, { digits: 1 }) }}</span>
     </div>
 
     <div v-if="properties.WG !== undefined" :class="{ outdated }">
-      Wind:
+      {{ gettext("Wind") }}:
       <span>{{ format(properties.WG, { unit: "km/h" }) }}</span>
       {{ " " }}
       <span>{{ windDirection }}</span>
       /
-      <span>max{{ format(properties.WG_BOE) }}</span>
+      <span>{{ gettext("max") }}{{ format(properties.WG_BOE) }}</span>
     </div>
   </li>
 </template>
