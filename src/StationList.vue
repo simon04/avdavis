@@ -10,6 +10,7 @@ const props = defineProps<{
 const sort = {
   "LWD-Region": (a: Geo.Feature, b: Geo.Feature) =>
     a.properties["LWD-Region"].localeCompare(b.properties["LWD-Region"]),
+  Name: (a: Geo.Feature, b: Geo.Feature) => a.properties.name.localeCompare(b.properties.name),
   "Snow height": (a: Geo.Feature, b: Geo.Feature) =>
     (b.properties.HS ?? 0) - (a.properties.HS ?? 0),
   Δ24h: (a: Geo.Feature, b: Geo.Feature) => (b.properties.HSD24 ?? 0) - (a.properties.HSD24 ?? 0),
