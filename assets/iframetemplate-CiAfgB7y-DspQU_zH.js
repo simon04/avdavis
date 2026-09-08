@@ -1,0 +1,59 @@
+var e=`<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>linea</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      html,
+      body {
+        height: 100%; /* <--- crucial */
+        margin: 0;
+      }
+
+      #chart-container {
+        position: relative;
+        width: 100%;
+        height: 100%; /* now 100% of body */
+      }
+
+      #linea {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      #fallback {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        z-index: 2;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="chart-container">
+      <img id="fallback" src="" />
+      <linea-plot data="" showsurfacehoarseries showtitle id="linea"></linea-plot>
+    </div>
+
+    <script type="module" src="https://albina-euregio.gitlab.io/linea/linea.js"><\/script>
+    <script>
+      const linea = document.getElementById("linea");
+      const fallback = document.getElementById("fallback");
+
+      customElements.whenDefined("linea-plot").then(() => {
+        fallback.style.display = "none";
+      });
+    <\/script>
+  </body>
+</html>
+`;export{e as default};
+//# sourceMappingURL=iframetemplate-CiAfgB7y-DspQU_zH.js.map
