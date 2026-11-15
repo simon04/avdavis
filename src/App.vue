@@ -52,8 +52,8 @@ const lastModified = computed(() => response.value?.headers.get("Last-Modified")
 
 <style scoped>
 main {
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 10px white;
+  background: var(--surface);
+  box-shadow: 0 0 10px var(--surface);
   padding: 1em;
   max-width: 1024px;
   margin: 0 auto;
