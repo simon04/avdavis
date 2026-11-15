@@ -19,6 +19,27 @@ defineOptions({
 const latitude = computed<number>(() => props.feature.geometry.coordinates[1]!);
 const longitude = computed<number>(() => props.feature.geometry.coordinates[0]!);
 const geo = computed<string>(() => `geo:${latitude.value},${longitude.value}`);
+const lineaFeatures = computed<string>(() =>
+  JSON.stringify([
+    {
+      type: "Feature",
+      id: props.feature.id,
+      geometry: props.feature.geometry,
+      properties: {
+        name: props.feature.properties.name,
+        shortName: /^[A-Za-z0-9]+$/.test(id.value) ? id.value : undefined,
+        operator: props.feature.properties.operator,
+        operatorLink: "https://lawine.tirol.gv.at/",
+        operatorLicense: "CC BY 4.0",
+        dataProviderID: "ALBINA",
+        dataURLs: ["woche", "winter", "all"].map(
+          (interval) =>
+            `https://wiski.tirol.gv.at/lawine/grafiken/smet/${interval}/${id.value}.smet.gz`,
+        ),
+      },
+    },
+  ]),
+);
 const osm = computed<string>(
   () => `https://www.openstreetmap.org/?mlat=${latitude.value}&mlon=${longitude.value}`,
 );
@@ -63,7 +84,11 @@ dialog {
     <linea-plot
       v-if="linea"
       showtitle
-      :src="`https://api.avalanche.report/lawine/grafiken/smet/woche/${id}.smet.gz`"
+      showsurfacehoarseries
+      showexport
+      showdatepicker
+      :features="lineaFeatures"
+      :forecast-latlon="`${latitude},${longitude}`"
     />
   </dialog>
   <ul>
