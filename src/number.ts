@@ -1,5 +1,5 @@
 export function format(
-  number: Number | undefined,
+  number: number | undefined,
   { width = 4, digits = 0, unit = "", factor = 1 } = {},
 ) {
   if (typeof number === "number") {

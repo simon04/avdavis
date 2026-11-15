@@ -64,8 +64,7 @@ li:hover {
 
     <div v-if="properties.HS !== undefined">
       <div :class="{ outdated }" style="float: right">
-        <ins>{{ hsHistogram.add }}</ins
-        ><del>{{ hsHistogram.del }}</del
+        <ins>{{ hsHistogram.add }}</ins><del>{{ hsHistogram.del }}</del
         ><span>{{ hsHistogram.base }}</span>
       </div>
       <div :class="{ outdated }" style="clear: right">
